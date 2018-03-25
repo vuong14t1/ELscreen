@@ -15,9 +15,22 @@ public class StartMyServiceReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if(Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())){
-            Intent serviceIntent = new Intent(context, MainService.class);
-            context.startService(serviceIntent);
-            Log.v("TEST", "Service loaded at start");
+            _processStartService(context);
+            Toast.makeText(context, "boot ", Toast.LENGTH_SHORT).show();
         }
+        if( Intent.ACTION_SCREEN_ON.equals(intent.getAction())){
+
+            _processStartService(context);
+
+        }
+        if( Intent.ACTION_SCREEN_OFF.equals(intent.getAction())){
+
+        }
+    }
+
+    // goi toi service
+    private void _processStartService(Context context){
+        Intent serviceIntent = new Intent(context, MainService.class);
+        context.startService(serviceIntent);
     }
 }
