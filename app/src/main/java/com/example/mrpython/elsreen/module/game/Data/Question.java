@@ -55,7 +55,7 @@ public class Question {
         return true;
     }
 
-    public void suffletAnswer(){
+    public void shuffleAnswer(){
         Collections.shuffle(this.listAnswer);
     }
     public void setData(String question, String result, ArrayList listAnswer){

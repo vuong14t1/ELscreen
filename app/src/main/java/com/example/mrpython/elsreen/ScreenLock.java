@@ -50,7 +50,7 @@ public class ScreenLock extends AppCompatActivity {
     }
     public void updateQuestion(){
         Question qs = this.gameBase.getQuestion();
-        qs.suffletAnswer();
+        qs.shuffleAnswer();
         this.txtQuestion.setText(String.valueOf(qs.getQuestion()));
         this.rdAnswerA.setText(String.valueOf(qs.getListAnswer().get(0)));
         this.rdAnswerB.setText(String.valueOf(qs.getListAnswer().get(1)));
