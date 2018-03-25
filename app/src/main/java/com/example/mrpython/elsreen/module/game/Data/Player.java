@@ -62,4 +62,17 @@ public class Player {
         }
 
     }
+    public void setData(String uName, long scores, int level, long curExp){
+        this.setName(uName);
+        this.setScores(scores);
+        this.setLevel(level);
+        this.setCurExp(curExp);
+    }
+    public void cheatData(){
+        String name = "Mr Python";
+        long scores = 100;
+        int level = 3;
+        long curExp = 123;
+        this.setData(name, scores, level, curExp);
+    }
 }

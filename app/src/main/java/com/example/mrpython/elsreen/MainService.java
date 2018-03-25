@@ -37,7 +37,7 @@ public class MainService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         // do your jobs here
-        Intent dialogIntent = new Intent(this, MainActivity.class);
+        Intent dialogIntent = new Intent(this, ScreenLock.class);
         dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(dialogIntent);
         return super.onStartCommand(intent, flags, startId);
