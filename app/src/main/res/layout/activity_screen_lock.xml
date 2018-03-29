@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,7 +7,7 @@
     android:orientation="vertical"
     tools:context="com.example.mrpython.elsreen.ScreenLock">
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="0dp"
@@ -21,11 +20,12 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         android:text="Level"
+        android:id="@+id/txtLevel"
         android:textColor="#2619DA"
         android:textSize="28sp" />
 
     <TextView
-        android:id="@+id/tvQuestion"
+        android:id="@+id/txtQuestion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="15dp"
@@ -41,7 +41,7 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/rdbAnswerA"
+                android:id="@+id/rdAnswerA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
@@ -49,7 +49,7 @@
                 android:text="Close" />
 
             <RadioButton
-                android:id="@+id/rdbAnswerB"
+                android:id="@+id/rdAnswerB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
@@ -63,18 +63,23 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/rdbAnswerC"
+                android:id="@+id/rdAnswerC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:text="Closing" />
 
             <RadioButton
-                android:id="@+id/rdbAnswerD"
+                android:id="@+id/rdAnswerD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:text="Closed" />
         </LinearLayout>
     </RadioGroup>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnUnLock"
+        android:text="Unlock"/>
 </LinearLayout>

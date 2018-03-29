@@ -10,6 +10,7 @@ public class GameBase {
     public GameBase(){
         this.player = new Player();
         this.question = new Question();
+        setData();
     }
     public void setData(){
         this.player.cheatData();

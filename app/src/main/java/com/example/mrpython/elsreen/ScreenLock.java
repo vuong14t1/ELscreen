@@ -2,6 +2,7 @@ package com.example.mrpython.elsreen;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -11,6 +12,11 @@ import android.widget.Toast;
 import com.example.mrpython.elsreen.module.game.Data.GameBase;
 import com.example.mrpython.elsreen.module.game.Data.Player;
 import com.example.mrpython.elsreen.module.game.Data.Question;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class ScreenLock extends AppCompatActivity {
     // GUI
@@ -27,9 +33,38 @@ public class ScreenLock extends AppCompatActivity {
         setContentView(R.layout.activity_screen_lock);
         this.addControls();
         this.addEvents();
+        this.readData();
+    }
+    public void readData(){
+        String data;
+        try{
+            InputStream in= openFileInput("F:\\test\\data.txt");
+            InputStreamReader inreader=new InputStreamReader(in);
+            BufferedReader bufreader=new BufferedReader(inreader);
+            StringBuilder builder=new StringBuilder();
+            if(in != null)
+            {
+                try
+                {
+                    while((data=bufreader.readLine())!=null)
+                    {
+                        builder.append(data);
+                        builder.append("\n");
+                    }
+                    in.close();
+                    Toast.makeText(this, builder.toString(), Toast.LENGTH_SHORT).show();
+                }
+                catch(IOException ex){
+                    Log.e("ERROR", ex.getMessage());
+                }
+            }
+        }catch(Exception ex){
+
+        }
+
     }
     public void addControls(){
-        this.txtName = findViewById(R.id.txtName);
+        this.txtName = (TextView) findViewById(R.id.txtName);
         this.txtLevel = findViewById(R.id.txtLevel);
         this.txtQuestion = findViewById(R.id.txtQuestion);
 
@@ -41,7 +76,6 @@ public class ScreenLock extends AppCompatActivity {
         this.btnUnLock = findViewById(R.id.btnUnLock);
         //
         this.gameBase = new GameBase();
-        this.gameBase.setData();
         this.updateGUI();
     }
     public void updateGUI(){

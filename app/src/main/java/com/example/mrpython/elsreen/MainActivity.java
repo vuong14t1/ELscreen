@@ -16,12 +16,14 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     Button btnExit;
     public BroadcastReceiver lockScreenReceiver = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         assignView();
-        _registerBroadCast();
+//        _registerBroadCast();
+        startService(new Intent(this, MainService.class));
 
     }
     private void _registerBroadCast(){
@@ -47,17 +49,17 @@ public class MainActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode == KeyEvent.KEYCODE_HOME)
         {
-            Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "Home", Toast.LENGTH_SHORT).show();
         }
 
         if(keyCode==KeyEvent.KEYCODE_BACK)
         {
-            Toast.makeText(getApplicationContext(), "Back", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "Back", Toast.LENGTH_SHORT).show();
         }
 
         if (keyCode == KeyEvent.KEYCODE_MENU)
         {
-            Toast.makeText(getApplicationContext(), "Menu", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "Menu", Toast.LENGTH_SHORT).show();
         }
 
         return false;
