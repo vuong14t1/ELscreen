@@ -51,7 +51,7 @@ public class Question {
     public boolean isResult(String re){
         if(re == null) return false;
         if((this.listAnswer.indexOf(re)) == -1) return false;
-        if(! re.equals(this.result)) return false;
+        if(! re.trim().equals(this.result.trim())) return false;
         return true;
     }
 

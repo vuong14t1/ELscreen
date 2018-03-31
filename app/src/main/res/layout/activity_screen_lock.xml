@@ -31,52 +31,44 @@
         android:layout_marginVertical="15dp"
         android:text="Please remember ____ the door after going out" />
 
-    <RadioGroup
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <LinearLayout
+        <RadioGroup
+            android:id="@+id/rdGroup"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
 
             <RadioButton
                 android:id="@+id/rdAnswerA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginRight="0dp"
-                android:text="Close" />
+                android:layout_marginRight="0dp" />
 
             <RadioButton
                 android:id="@+id/rdAnswerB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:text="To close" />
-        </LinearLayout>
+                android:layout_marginHorizontal="20dp" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/rdAnswerC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:text="Closing" />
+                android:layout_marginHorizontal="20dp" />
 
             <RadioButton
                 android:id="@+id/rdAnswerD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:text="Closed" />
-        </LinearLayout>
-    </RadioGroup>
+                android:layout_marginHorizontal="20dp" />
+
+        </RadioGroup>
+    </RelativeLayout>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -21,14 +21,6 @@ public class MainService extends Service {
     }
 
     @Override
-    public void onStart(Intent intent, int startId) {
-        // TODO Auto-generated method stub
-        super.onStart(intent, startId);
-    }
-
-
-
-    @Override
     public void onCreate() {
         super.onCreate();
     }
@@ -45,7 +37,8 @@ public class MainService extends Service {
     }
     @Override
     public void onDestroy() {
+        unregisterReceiver(lockScreenReceiver);
         super.onDestroy();
-//        unregisterReceiver(lockScreenReceiver);
+
     }
 }

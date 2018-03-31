@@ -1,11 +1,13 @@
 package com.example.mrpython.elsreen;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ import java.io.InputStreamReader;
 public class ScreenLock extends AppCompatActivity {
     // GUI
     private TextView txtName, txtLevel, txtQuestion;
+    private RadioGroup rdGroup;
     private RadioButton rdAnswerA, rdAnswerB, rdAnswerC, rdAnswerD;
     private Button btnUnLock;
 
@@ -31,6 +34,7 @@ public class ScreenLock extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_lock);
+        startService(new Intent(this, MainService.class));
         this.addControls();
         this.addEvents();
         this.readData();
@@ -67,7 +71,7 @@ public class ScreenLock extends AppCompatActivity {
         this.txtName = (TextView) findViewById(R.id.txtName);
         this.txtLevel = findViewById(R.id.txtLevel);
         this.txtQuestion = findViewById(R.id.txtQuestion);
-
+        this.rdGroup = findViewById(R.id.rdGroup);
         this.rdAnswerA = findViewById(R.id.rdAnswerA);
         this.rdAnswerB = findViewById(R.id.rdAnswerB);
         this.rdAnswerC = findViewById(R.id.rdAnswerC);
@@ -100,8 +104,31 @@ public class ScreenLock extends AppCompatActivity {
         this.btnUnLock.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "unlock", Toast.LENGTH_SHORT).show();
+                processCheck();
             }
         });
+    }
+    public void processCheck(){
+        int idCheckGroup = rdGroup.getCheckedRadioButtonId();
+        String result = "";
+        switch (idCheckGroup){
+            case R.id.rdAnswerA:
+                result = rdAnswerA.getText().toString();
+                break;
+            case R.id.rdAnswerB:
+                result = rdAnswerB.getText().toString();
+                break;
+            case R.id.rdAnswerC:
+                result = rdAnswerC.getText().toString();
+                break;
+            case R.id.rdAnswerD:
+                result = rdAnswerD.getText().toString();
+                break;
+        }
+        if(this.gameBase.getQuestion().isResult(result)){
+            finish();
+        }else{
+            Toast.makeText(this, "Ban da tra loi sai", Toast.LENGTH_SHORT).show();
+        }
     }
 }
